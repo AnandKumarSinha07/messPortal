@@ -16,8 +16,6 @@ const userSchema=new mongoose.Schema({
     emailId:{
          type:String,
          required:true,
-        
-
           validate(value){
              if(!validator.isEmail(value)){
              throw new Error("Invalid email address"+value)
@@ -30,8 +28,7 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        minLength:8,
-        maxLength:20,
+        minLength:8,    
         validate(value){
             if(!validator.isStrongPassword(value)){
                  throw new Error("please enter some strong password")
@@ -49,14 +46,10 @@ const userSchema=new mongoose.Schema({
     bankAccount:{
         type:String,
         trim:true,
-        unique:true,
-        required:true,
     },
     ifsc:{
         type:String,
         trim:true,
-        unique:true,
-        required:true,
     },
     avatar:{
         type:String,

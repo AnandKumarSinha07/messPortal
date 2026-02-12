@@ -27,7 +27,6 @@ const adminSchema=new mongoose.Schema({
         type:String,
         required:true,
         minLength:8,
-        maxLength:20,
         trim:true,
         validate(value){
             if(!validator.isStrongPassword(value)){
@@ -41,5 +40,5 @@ const adminSchema=new mongoose.Schema({
      }
 },{timestamps:true})
 
-const Admin=mongoose.models("Admin",adminSchema);
+const Admin=mongoose.model("Admin",adminSchema);
 module.exports=Admin;

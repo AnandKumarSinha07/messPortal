@@ -90,8 +90,17 @@
     
     const getProfile=async(req,res)=>{
           try {
+             
+             const getStudent={
+                studentRoll:req.user.studentRoll,
+                studentName:req.user.studentName,
+                emailId:req.user.emailId,
+                number:req.user.number,
+                avatar:req.user.avatar
+             }
+            
               return res.status(200).json({
-                msg:req.user
+                "data":getStudent
               })
           } catch (error) {
               console.log("Error in the get api",error.message)
@@ -101,5 +110,11 @@
           }
     }
 
+    const Logout=async(req,res)=>{
+        res.cookie("token", null, {
+          expires: new Date(Date.now()), 
+       });
+      return res.status(200).send("Logout successful!!");
+    }
 
-    module.exports={StudentCreation,loginStudent,getProfile};
+    module.exports={StudentCreation,loginStudent,getProfile,Logout};

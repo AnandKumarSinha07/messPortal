@@ -31,7 +31,7 @@ const AdminMiddleware=async(req,res,next)=>{
         
         })
     }
-    const decodeToken= jwt.verify(token,process.env.STUDENT_KEY);
+    const decodeToken= jwt.verify(token,process.env.ADMIN_KEY);
     console.log("decodeToken",decodeToken);
     console.log("id is",decodeToken._id)
     const findAdmin=await Admin.findById(decodeToken._id);
